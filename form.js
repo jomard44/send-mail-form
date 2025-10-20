@@ -8,6 +8,12 @@
       const to = form.getAttribute("data-form-email");
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
+        const data = {
+  name: form.name.value,
+  email: form.email.value,
+  message: form.message.value,
+  to: to // this comes from data-form-email
+};
   
       data.to = to; // include owner's email
   
