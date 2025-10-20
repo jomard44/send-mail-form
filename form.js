@@ -1,13 +1,12 @@
-(() => {
-  document.addEventListener("submit", async (e) => {
-    const form = e.target;
+document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("submit", async (event) => {
+    const form = event.target;
     if (!form.hasAttribute("data-form-email")) return;
 
-    e.preventDefault();
+    event.preventDefault(); 
 
     const to = form.getAttribute("data-form-email");
 
-    // collect form values dynamically
     const data = {
       name: form.name.value,
       email: form.email.value,
@@ -25,10 +24,11 @@
       const result = await res.json();
       alert(result.message || "Form sent successfully!");
     } catch (err) {
-      alert("Error sending form!");
       console.error(err);
+      alert("Error sending form!");
     }
   });
-})();
+});
+
 
   
